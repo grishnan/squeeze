@@ -32,7 +32,7 @@ outext="$2" # выходное расширение имён файлов
 
 convert() {
 	filename="$1"
-	ffmpeg -i "$filename" -f "$outext" "${filename%.*}.$outext"
+	ffmpeg -nostdin -i "$filename" -f "$outext" "${filename%.*}.$outext"
 }
 
 find . -maxdepth 1 -type f -print0 | while IFS= read -r -d '' filename
